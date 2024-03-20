@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+    <div>
+        <div style="width: 40%;margin: 0 auto">
+            <h2>
+                Escríbenos !!!
+            </h2>
+            <div class="resultado" style="color:green;font-style: italic">
+            </div>
+            <form id="formulario">
+                <div>
+                    <div style="display: flex;flex-direction: column;">
+                        <label>
+                            Nombre completo
+                        </label>
+                        <input id="nombre" type="text">
+                        <p class="errorNombre" style="color:red;font-style: italic;"></p>
+                    </div>
+                    <div style="display: flex;flex-direction: column;">
+                        <label>
+                            Asunto
+                        </label>
+                        <input id="asunto" type="text">
+                        <p class="errorAsunto" style="color:red;font-style: italic;"></p>
+                    </div>
+                </div>
+                <div style="display: flex;flex-direction: column;">
+                    <label>
+                        Mensaje
+                    </label>
+                    <textarea id="mensaje"></textarea>
+                    <p class="errorMensaje" style="color:red;font-style: italic;"></p>
+                </div>
+                <div>
+                    <button id="botton" type="submit">
+                        Envíar mensaje
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script>
+        // Escríbe aquí tu código
+
+        let formulario = document.getElementById("formulario");
+  
+        formulario.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let nombre = document.getElementById("nombre").value;
+            let asunto = document.getElementById("asunto").value;
+            let mensaje = document.getElementById("mensaje").value;
+            
+    
+          
+            let regexNombre = /[^0-9]/gi;
+            let regexAsunto = /[a-zA-Zñáéíóú0]/gi;
+            let regexMensaje = /[a-zA-Zñáéíóú]/gim;
+            
+            let validacion = regexNombre.test(nombre);
+            let validacionAsunto = regexAsunto.test(asunto);
+            let validacionMensaje = regexAsunto.test(asunto);
+
+            if (validacion){
+                document.querySelector(".resultado").innerHTML = "Mensaje enviado con éxito!!!";
+            } else {
+                document.querySelector(".errorNombre").innerHTML="El nombre es requerido";
+            }
+
+            if (validacionAsunto){
+                document.querySelector(".resultado").innerHTML = "Mensaje enviado con éxito!!!";
+            } else {
+                document.querySelector(".errorAsunto").innerHTML="El asunto es requerido";
+            }
+
+            if (validacionMensaje){
+                document.querySelector(".resultado").innerHTML = "Mensaje enviado con éxito!!!";
+            } else {
+                document.querySelector(".errorMensaje").innerHTML="El Mensaje es requerido";
+            }
+
+        });
+
+
+    </script>
+</body>
+
+</html>

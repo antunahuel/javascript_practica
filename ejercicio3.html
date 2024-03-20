@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 3</title>
+</head>
+
+<body>
+    <div>
+        <div>
+            <h2>
+                Resultado: <span class="resultado"></span>
+            </h2>
+            <div>
+                <div>
+                    <div>
+                        <label for="">Valor 1</label>
+                        <input id="valor1" type="text">
+                    </div>
+                    <div>
+                        <label for="">Valor 2</label>
+                        <input id="valor2" type="text">
+                    </div>
+                    <div style="display: flex">
+                        <button id="btn-sumar" type="button">
+                            Sumar
+                        </button>
+                        <button id="btn-restar" type="button">
+                            Restar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+
+
+
+
+        let btnSuma = document.getElementById("btn-sumar");
+        btnSuma.addEventListener("click", function (event) {
+            event.preventDefault();
+            let valor1 = document.getElementById("valor1");
+            let valor2 = document.getElementById("valor2");
+            suma();
+            
+
+        });
+        let btnResta = document.getElementById("btn-restar");
+        btnResta.addEventListener("click", function (event) {
+            event.preventDefault();
+            resta();
+        });
+
+        function suma() {
+            valor1 = Number(valor1.value);
+            valor2 = Number(valor2.value);
+            let sumar = (valor1 + valor2);
+            document.querySelector(".resultado").innerHTML = `El resultado de la suma es: ${sumar}`;
+       
+  
+        };
+
+        function resta() {
+            valor1 = Number(valor1.value);
+            valor2 = Number(valor2.value);
+            let resta = (valor1 - valor2);
+            if (resta >= 0) {
+                resta = resta;
+            } else {
+                resta = 0;
+            }
+            document.querySelector(".resultado").innerHTML = `El resultado de la resta es: ${resta}`;
+           
+        };
+
+
+    </script>
+</body>
+
+</html>

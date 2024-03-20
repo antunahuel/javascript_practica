@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="contenedor">
+        <div class="buscador">
+            <input class="input-a-buscar" type="text" name="buscador">
+            <button id="boton" type="button">Buscar</button>
+        </div>
+        <p class="error" style="color: red"></p>
+        <p class="resultado"></p>
+    </div>
+
+
+
+
+    <script>
+        let boton = document.getElementById("boton");
+        boton.addEventListener("click", function () {
+            let buscar = document.querySelector(".input-a-buscar");
+
+            if (buscar.value != "") {
+                document.querySelector(".resultado").innerHTML = "Estas buscando:" + buscar.value;
+            } else {document.querySelector(".error").innerHTML = "para poder buscar debes ingresar una palabra";};    
+        });
+
+       
+
+
+    </script>
+</body>
+
+</html>
